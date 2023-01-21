@@ -1,4 +1,4 @@
-package com.markusw.chatapp
+package com.markusw.chatapp.ui.activities.main
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
