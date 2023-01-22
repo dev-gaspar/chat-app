@@ -1,9 +1,6 @@
 package com.markusw.chatapp.ui.view.screens.main
 
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.*
 import androidx.compose.material.Button
 import androidx.compose.material.OutlinedTextField
 import androidx.compose.material.Text
@@ -15,10 +12,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
+import com.markusw.chatapp.ui.view.screens.Screens
 import com.markusw.chatapp.ui.view.viewmodel.MainViewModel
 
 @Composable
 fun MainScreen(
+    navController: NavController,
     viewModel: MainViewModel = hiltViewModel()
 ) {
 
@@ -26,7 +27,8 @@ fun MainScreen(
 
     Column(
         verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally
+        horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = Modifier.fillMaxSize()
     ) {
         OutlinedTextField(
             value = userName,
@@ -36,7 +38,9 @@ fun MainScreen(
             }
         )
         Spacer(modifier = Modifier.height(16.dp))
-        Button(onClick = {  }) {
+        Button(onClick = {
+            navController.navigate("${Screens.ChatScreen.route}/pedro")
+        }) {
             Text(text = "Start chat")
         }
     }
@@ -45,5 +49,5 @@ fun MainScreen(
 @Preview(showSystemUi = true)
 @Composable
 fun MainScreenPreview() {
-    MainScreen()
+    MainScreen(navController = rememberNavController())
 }
