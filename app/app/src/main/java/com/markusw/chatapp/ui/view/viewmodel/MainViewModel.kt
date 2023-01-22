@@ -1,4 +1,4 @@
-package com.markusw.chatapp.ui.viewmodel
+package com.markusw.chatapp.ui.view.viewmodel
 
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.HiltAndroidApp
